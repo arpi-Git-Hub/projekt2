@@ -1,0 +1,15 @@
+C:\11F\Tóth Árpád\projekt2\bin\Debug\net7.0\projekt2.exe
+C:\11F\Tóth Árpád\projekt2\bin\Debug\net7.0\projekt2.deps.json
+C:\11F\Tóth Árpád\projekt2\bin\Debug\net7.0\projekt2.runtimeconfig.json
+C:\11F\Tóth Árpád\projekt2\bin\Debug\net7.0\projekt2.dll
+C:\11F\Tóth Árpád\projekt2\bin\Debug\net7.0\projekt2.pdb
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.csproj.AssemblyReference.cache
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.GeneratedMSBuildEditorConfig.editorconfig
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.AssemblyInfoInputs.cache
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.AssemblyInfo.cs
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.csproj.CoreCompileInputs.cache
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.dll
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\refint\projekt2.dll
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.pdb
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\projekt2.genruntimeconfig.cache
+C:\11F\Tóth Árpád\projekt2\obj\Debug\net7.0\ref\projekt2.dll
