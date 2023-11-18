@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\11F\\Tóth Árpád\\projekt2\\projekt2.csproj": {}
+    "C:\\Users\\Lenovo\\OneDrive\\Dokumentumok\\Iskola\\Programozás\\Projektmunka\\projekt2\\projekt2.csproj": {}
   },
   "projects": {
-    "C:\\11F\\Tóth Árpád\\projekt2\\projekt2.csproj": {
+    "C:\\Users\\Lenovo\\OneDrive\\Dokumentumok\\Iskola\\Programozás\\Projektmunka\\projekt2\\projekt2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\11F\\Tóth Árpád\\projekt2\\projekt2.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\OneDrive\\Dokumentumok\\Iskola\\Programozás\\Projektmunka\\projekt2\\projekt2.csproj",
         "projectName": "projekt2",
-        "projectPath": "C:\\11F\\Tóth Árpád\\projekt2\\projekt2.csproj",
-        "packagesPath": "C:\\Users\\toth.arpad\\.nuget\\packages\\",
-        "outputPath": "C:\\11F\\Tóth Árpád\\projekt2\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\OneDrive\\Dokumentumok\\Iskola\\Programozás\\Projektmunka\\projekt2\\projekt2.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\OneDrive\\Dokumentumok\\Iskola\\Programozás\\Projektmunka\\projekt2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\toth.arpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

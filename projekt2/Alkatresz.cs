@@ -27,5 +27,14 @@ namespace projekt2
 
         public string Parameter { get => parameter; }
         public int Ar { get => ar; }
+
+        public void Akcio(int sz)
+        {
+            ar = ar / 100 * sz;
+        } 
+        public void Param(string p)
+        {
+            parameter = p;
+        }
     }
 }
