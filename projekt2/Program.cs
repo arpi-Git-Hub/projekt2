@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace projekt2
 {
@@ -8,7 +9,6 @@ namespace projekt2
         static List<Alkatresz> alkatreszek;
 
         static void Szin(ConsoleColor szin) { Console.ForegroundColor = szin; }
-
         static void Beolvasas(string fajlNev)
         {
             alkatreszek = new List<Alkatresz>();
@@ -65,9 +65,13 @@ namespace projekt2
                                 }
                             }
                         }
+                        Console.Clear();
                         if (van == false)
                         {
                             File.AppendAllText(fajlNev, $"{tipus};{nev};{parameter};{ar}" + Environment.NewLine);
+                            Szin(ConsoleColor.Green);
+                            Console.WriteLine("Új alkatrész hozzáadva");
+                            Szin(ConsoleColor.White);
                             Console.Write("Új alkatrész bevitele (i/n): ");
                             string valasz2 = Console.ReadLine();
                             if (valasz2 == "n")
@@ -78,6 +82,7 @@ namespace projekt2
                         break;
                     }
                     break;
+                    Console.Clear();
                 }
                 else if (valasz1 == "n")
                 {
@@ -116,9 +121,13 @@ namespace projekt2
                                         }
                                     }
                                 }
+                                Console.Clear();
                                 if (van == false)
                                 {
                                     File.AppendAllText(fajlNev, $"{tipus};{nev};{parameter};{ar}" + Environment.NewLine);
+                                    Szin(ConsoleColor.Green);
+                                    Console.WriteLine("Új alkatrész hozzáadva");
+                                    Szin(ConsoleColor.White);
                                     Console.Write("Új alkatrész bevitele (i/n): ");
                                     string valasz2 = Console.ReadLine();
                                     if (valasz2 == "n")
@@ -140,15 +149,17 @@ namespace projekt2
                 }
                 else { Console.WriteLine("i/n"); }
             }
-            
-            
+            Console.Clear();
+
         }
 
         static void Kereses1()
         {
+            Console.Clear();
             Console.Write("\nAlkatrész típusa vagy neve: ");
             string tipusnev = Console.ReadLine();
             int db = 0;
+            Console.Clear();
             foreach (var a in alkatreszek)
             {
                 if (a.Tipus.ToLower() == tipusnev.ToLower() || a.Nev.ToLower().Contains(tipusnev.ToLower()))
@@ -167,11 +178,13 @@ namespace projekt2
 
         static void Kereses2()
         {
+            Console.Clear();
             Console.Write("\nMinimum ár: ");
             int minAr = Convert.ToInt32(Console.ReadLine());
             Console.Write("Maximum ár: ");
             int maxAr = Convert.ToInt32(Console.ReadLine());
             int db = 0;
+            Console.Clear();
             foreach (var a in alkatreszek)
             {
                 if (a.Ar >= minAr && a.Ar <= maxAr)
@@ -190,6 +203,7 @@ namespace projekt2
 
         static void Statisztika()
         {
+            Console.Clear();
             int intelCPU = 0;
             int amdCPU = 0;
             int nvidia = 0;
@@ -225,6 +239,7 @@ namespace projekt2
 
         static void Akcio()
         {
+            Console.Clear();
             Console.Write("\nHány százalékos akció legyen (1-100): ");
             int szazalek = Convert.ToInt32(Console.ReadLine());
             Console.Write("Melyik termék típusra legyen akció: ");
@@ -261,6 +276,7 @@ namespace projekt2
 
         static void Modositas()
         {
+            Console.Clear();
             Console.Write("\nAlkatrész neve: ");
             string nev = Console.ReadLine();
             int db = 0;
