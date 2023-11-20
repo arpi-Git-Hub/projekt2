@@ -1,4 +1,0 @@
-CPU;sad;asd;200
-CPU;asd;asd;200
-CPU;asd;asd;2000
-Alaplap;fgh;ghj;20000
