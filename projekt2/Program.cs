@@ -323,39 +323,123 @@ namespace projekt2
             }
         }
 
+
+        static void StatSzamol(List<string> lista, string tipus, List<int> listaSzam)
+        {
+            foreach (var elem in lista)
+            {
+                int szam = 0;
+                foreach (var a in alkatreszek)
+                {
+                    if (a.Tipus == tipus && a.Nev.Contains(elem))
+                    {
+                        szam++;
+                    }
+                }
+                listaSzam.Add(szam);
+            }
+        }
+
+        static void StatKiirat(string tipus, List<string> lista, List<int> listaSzam)
+        {
+            Console.WriteLine($"{tipus.ToUpper()}\n");
+            for (int i = 0; i < lista.Count; i++)
+            {
+                Console.WriteLine($"{listaSzam[i]} féle {lista[i]} {tipus}");
+            }
+            Console.WriteLine("");
+        }
+
         static void Statisztika()
         {
             Console.Clear();
-            int intelCPU = 0;
-            int amdCPU = 0;
-            int nvidia = 0;
-            int amdvideo = 0;
+            List<string> cpu = new List<string>();
+            List<int> cpuSzam = new List<int>();
+            List<string> vkartya = new List<string>();
+            List<int> vkartyaSzam = new List<int>();
+            List<string> alaplap = new List<string>();
+            List<int> alaplapSzam = new List<int>();
+            List<string> memoria = new List<string>();
+            List<int> memoriaSzam = new List<int>();
+            List<string> hdd = new List<string>();
+            List<int> hddSzam = new List<int>();
+            List<string> ssd = new List<string>();
+            List<int> ssdSzam = new List<int>();
+            List<string> monitor = new List<string>();
+            List<int> monitorSzam = new List<int>();
+            List<string> eger = new List<string>();
+            List<int> egerSzam = new List<int>();
+            List<string> bill = new List<string>();
+            List<int> billSzam = new List<int>();
             foreach (var a in alkatreszek)
             {
-                if (a.Tipus == "CPU" && a.Nev.StartsWith("Intel"))
+                if(a.Tipus == "CPU")
                 {
-                    intelCPU++;
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!cpu.Contains(nevElemek[0])) { cpu.Add(nevElemek[0]); }
                 }
-                else if (a.Tipus == "CPU" && a.Nev.StartsWith("AMD"))
+                else if(a.Tipus == "Videókártya")
                 {
-                    amdCPU++;
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!vkartya.Contains(nevElemek[0])) { vkartya.Add(nevElemek[0]); }
                 }
-                else if (a.Tipus == "Videókártya" && a.Nev.StartsWith("Nvidia"))
+                else if (a.Tipus == "Alaplap")
                 {
-                    nvidia++;
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!alaplap.Contains(nevElemek[0])) { alaplap.Add(nevElemek[0]); }
                 }
-                else if (a.Tipus == "Videókártya" && a.Nev.StartsWith("AMD"))
+                else if (a.Tipus == "Memória")
                 {
-                    amdvideo++;
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!memoria.Contains(nevElemek[0])) { memoria.Add(nevElemek[0]); }
                 }
-            }
+                else if (a.Tipus == "HDD")
+                {
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!hdd.Contains(nevElemek[0])) { hdd.Add(nevElemek[0]); }
+                }
+                else if (a.Tipus == "SSD")
+                {
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!ssd.Contains(nevElemek[0])) { ssd.Add(nevElemek[0]); }
+                }
+                else if (a.Tipus == "Monitor")
+                {
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!monitor.Contains(nevElemek[0])) { monitor.Add(nevElemek[0]); }
+                }
+                else if (a.Tipus == "Egér")
+                {
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!eger.Contains(nevElemek[0])) { eger.Add(nevElemek[0]); }
+                }
+                else if (a.Tipus == "Billentyűzet")
+                {
+                    string[] nevElemek = a.Nev.Split(" ");
+                    if (!bill.Contains(nevElemek[0])) { bill.Add(nevElemek[0]); }
+                }
 
-            Console.WriteLine("PROCESSZOROK\n");
-            Console.WriteLine($"  {intelCPU} Intel processzor");
-            Console.WriteLine($"  {amdCPU} AMD processzor");
-            Console.WriteLine("\nVIDEÓKÁRTYÁK\n");
-            Console.WriteLine($"  {nvidia} Nvidia kártya");
-            Console.WriteLine($"  {amdvideo} AMD kártya\n");
+
+            }
+            StatSzamol(cpu, "CPU", cpuSzam);
+            StatSzamol(vkartya, "Videókártya", vkartyaSzam);
+            StatSzamol(alaplap, "Alaplap", alaplapSzam);
+            StatSzamol(memoria, "Memória", memoriaSzam);
+            StatSzamol(hdd, "HDD", hddSzam);
+            StatSzamol(ssd, "SSD", ssdSzam);
+            StatSzamol(monitor, "Monitor", monitorSzam);
+            StatSzamol(eger, "Egér", egerSzam);
+            StatSzamol(bill, "Billentyűzet", billSzam);
+
+            StatKiirat("processzor", cpu, cpuSzam);
+            StatKiirat("videókártya", vkartya, vkartyaSzam);
+            StatKiirat("alaplap", alaplap, alaplapSzam);
+            StatKiirat("memória", memoria, memoriaSzam);
+            StatKiirat("HDD", hdd, hddSzam);
+            StatKiirat("SSD", ssd, ssdSzam);
+            StatKiirat("monitor", monitor, monitorSzam);
+            StatKiirat("egér", eger, egerSzam);
+            StatKiirat("billentyűzet", bill, billSzam);
 
         }
 
@@ -399,7 +483,7 @@ namespace projekt2
         static void Modositas()
         {
             Console.Clear();
-            Console.Write("Alkatrész neve: ");
+            Console.Write("Alkatrész teljes neve: ");
             string nev = Console.ReadLine();
             int db = 0;
             foreach (var a in alkatreszek)

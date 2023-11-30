@@ -30,7 +30,7 @@ namespace projekt2
 
         public void Akcio(int sz)
         {
-            ar = ar / 100 * sz;
+            ar = ar - (ar / 100 * sz);
         } 
         public void Param(string p)
         {
