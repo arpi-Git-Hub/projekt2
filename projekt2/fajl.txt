@@ -88,3 +88,4 @@ Billentyűzet;ASUS ROG Strix Scope RX Mechanical Gaming Keyboard;Cherry MX Red k
 Billentyűzet;Corsair K95 RGB Platinum XT Mechanical Gaming Keyboard;Cherry MX Speed kapcsolók;150000
 Billentyűzet;Cooler Master CK552 Gaming Mechanical Keyboard;Gateron Red kapcsolók;45000
 Billentyűzet;Anne Pro 2 Mechanical Gaming Keyboard;Kailh Box Brown kapcsolók;55000
+Videókártya;Nvidia GeForce RTX 4060;8GB GDDR6;140000

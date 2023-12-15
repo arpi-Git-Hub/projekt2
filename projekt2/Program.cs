@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Drawing;
+using System.Text;
 
 namespace projekt2
 {
@@ -8,7 +10,12 @@ namespace projekt2
 
         static List<Alkatresz> alkatreszek;
 
-        static void Szin(ConsoleColor szin) { Console.ForegroundColor = szin; }
+        static void Szin(ConsoleColor szin, string szoveg) 
+        {
+            Console.ForegroundColor = szin;
+            Console.WriteLine(szoveg);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
         static void Beolvasas(string fajlNev)
         {
             alkatreszek = new List<Alkatresz>();
@@ -37,9 +44,7 @@ namespace projekt2
                     if (valasz2 == "i")
                     {
                         File.WriteAllText(fajlNev, "");
-                        Szin(ConsoleColor.Green);
-                        Console.WriteLine("Alkatrészek törölve.");
-                        Szin(ConsoleColor.White);
+                        Szin(ConsoleColor.Green, "Alkatrészek törölve.");
                         for (int i = 0; i < i + 1; i++)
                         {
                             Console.WriteLine("\n");
@@ -58,9 +63,7 @@ namespace projekt2
                                 if (a.Tipus == tipus && a.Nev == nev)
                                 {
                                     van = true;
-                                    Szin(ConsoleColor.Red);
-                                    Console.WriteLine("Ilyen alkatrész már létezik.");
-                                    Szin(ConsoleColor.White);
+                                    Szin(ConsoleColor.Red, "Ilyen alkatrész már létezik.");
                                     Console.Write("Másik alkatrész bevitele (i/n): ");
                                     string valasz = Console.ReadLine();
                                     if (valasz == "n")
@@ -73,9 +76,7 @@ namespace projekt2
                             if (van == false)
                             {
                                 File.AppendAllText(fajlNev, $"{tipus};{nev};{parameter};{ar}" + Environment.NewLine);
-                                Szin(ConsoleColor.Green);
-                                Console.WriteLine("Új alkatrész hozzáadva\n");
-                                Szin(ConsoleColor.White);
+                                Szin(ConsoleColor.Green, "Új alkatrész hozzáadva\n");
                                 Console.Write("Új alkatrész bevitele (i/n): ");
                                 string valasz3 = Console.ReadLine();
                                 if (valasz3 == "n")
@@ -114,9 +115,7 @@ namespace projekt2
                                         if (a.Tipus == tipus && a.Nev == nev)
                                         {
                                             van = true;
-                                            Szin(ConsoleColor.Red);
-                                            Console.WriteLine("Ilyen alkatrész már létezik.");
-                                            Szin(ConsoleColor.White);
+                                            Szin(ConsoleColor.Red, "Ilyen alkatrész már létezik.");
                                             Console.Write("Másik alkatrész bevitele (i/n): ");
                                             string valasz = Console.ReadLine();
                                             if (valasz == "n")
@@ -129,9 +128,7 @@ namespace projekt2
                                     if (van == false)
                                     {
                                         File.AppendAllText(fajlNev, $"{tipus};{nev};{parameter};{ar}" + Environment.NewLine);
-                                        Szin(ConsoleColor.Green);
-                                        Console.WriteLine("Új alkatrész hozzáadva\n");
-                                        Szin(ConsoleColor.White);
+                                        Szin(ConsoleColor.Green, "Új alkatrész hozzáadva\n");
                                         Console.Write("Új alkatrész bevitele (i/n): ");
                                         string valasz4 = Console.ReadLine();
                                         if (valasz4 == "n")
@@ -180,9 +177,7 @@ namespace projekt2
                                     if (a.Tipus == tipus && a.Nev == nev)
                                     {
                                         van = true;
-                                        Szin(ConsoleColor.Red);
-                                        Console.WriteLine("Ilyen alkatrész már létezik.");
-                                        Szin(ConsoleColor.White);
+                                        Szin(ConsoleColor.Red, "Ilyen alkatrész már létezik.");
                                         Console.Write("Másik alkatrész bevitele (i/n): ");
                                         string valasz = Console.ReadLine();
                                         if (valasz == "n")
@@ -195,9 +190,7 @@ namespace projekt2
                                 if (van == false)
                                 {
                                     File.AppendAllText(fajlNev, $"{tipus};{nev};{parameter};{ar}" + Environment.NewLine);
-                                    Szin(ConsoleColor.Green);
-                                    Console.WriteLine("Új alkatrész hozzáadva\n");
-                                    Szin(ConsoleColor.White);
+                                    Szin(ConsoleColor.Green, "Új alkatrész hozzáadva\n");
                                     Console.Write("Új alkatrész bevitele (i/n): ");
                                     string valasz2 = Console.ReadLine();
                                     if (valasz2 == "n")
@@ -224,57 +217,6 @@ namespace projekt2
 
         }
 
-        static void UjAlkatresz(string fajlNev)
-        {
-            Console.Clear();
-            Beolvasas(fajlNev);
-            for (int i = 0; i < i + 1; i++)
-            {
-                Console.WriteLine("ÚJ ALKATRÉSZ");
-                Console.Write("Alkatrész típusa: ");
-                string tipus = Console.ReadLine();
-                Console.Write("Alkatrész neve: ");
-                string nev = Console.ReadLine();
-                Console.Write("Alkatrész paraméter: ");
-                string parameter = Console.ReadLine();
-                Console.Write("Alkatrész ára: ");
-                string ar = Console.ReadLine();
-                bool van = false;
-                foreach (var a in alkatreszek)
-                {
-                    if (a.Tipus == tipus && a.Nev == nev)
-                    {
-                        van = true;
-                        Szin(ConsoleColor.Red);
-                        Console.WriteLine("Ilyen alkatrész már létezik.");
-                        Szin(ConsoleColor.White);
-                        Console.Write("Másik alkatrész bevitele (i/n): ");
-                        string valasz = Console.ReadLine();
-                        if (valasz == "n")
-                        {
-                            break;
-                        }
-                    }
-                }
-                Console.Clear();
-                if (van == false)
-                {
-                    File.AppendAllText(fajlNev, $"{tipus};{nev};{parameter};{ar}" + Environment.NewLine);
-                    Szin(ConsoleColor.Green);
-                    Console.WriteLine("Új alkatrész hozzáadva\n");
-                    Szin(ConsoleColor.White);
-                    Console.Write("Új alkatrész bevitele (i/n): ");
-                    string valasz3 = Console.ReadLine();
-                    if (valasz3 == "n")
-                    {
-                        Console.Clear();
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-
         static void Kereses1()
         {
             Console.Clear();
@@ -292,9 +234,7 @@ namespace projekt2
             }
             if (db == 0)
             {
-                Szin(ConsoleColor.Red);
-                Console.WriteLine("Nem található ilyen alkatrész\n");
-                Szin(ConsoleColor.White);
+                Szin(ConsoleColor.Red, "Nem található ilyen alkatrész\n");
             }
         }
 
@@ -317,9 +257,7 @@ namespace projekt2
             }
             if(db == 0)
             {
-                Szin(ConsoleColor.Red);
-                Console.WriteLine("Nem található ilyen alkatrész\n");
-                Szin(ConsoleColor.White);
+                Szin(ConsoleColor.Red, "Nem található ilyen alkatrész\n");
             }
         }
 
@@ -470,12 +408,10 @@ namespace projekt2
                     }
                 }
             }                      
-            if (db == 0) { Szin(ConsoleColor.Red); Console.WriteLine("\nNem található ilyen alkatrész típus"); Szin(ConsoleColor.White); }
+            if (db == 0) { Szin(ConsoleColor.Red, "\nNem található ilyen alkatrész típus"); }
             else
             {
-                Szin(ConsoleColor.Green);
-                Console.WriteLine($"\n  {db} alkatrész {szazalek}% akciós\n");
-                Szin(ConsoleColor.White);
+                Szin(ConsoleColor.Green, $"\n  {db} alkatrész {szazalek}% akciós\n");
             }
             
         }
@@ -496,9 +432,7 @@ namespace projekt2
             }
             if (db == 0)
             {
-                Szin(ConsoleColor.Red);
-                Console.WriteLine("Nem található ilyen alkatrész név\n");
-                Szin(ConsoleColor.White);
+                Szin(ConsoleColor.Red, "Nem található ilyen alkatrész név\n");
             }
             else
             {
@@ -511,11 +445,52 @@ namespace projekt2
                         a.Param(parameter);
                     }
                 }
-                Szin(ConsoleColor.Green);
-                Console.WriteLine("Paraméterek módosítva\n");
-                Szin(ConsoleColor.White);
+                Szin(ConsoleColor.Green, "Paraméterek módosítva\n");
             }
             
+        }
+
+        static StringBuilder html = new StringBuilder();
+
+        static void Divek(string tipus)
+        {
+            
+            html.AppendLine("<div style=\"display: flex; flex-wrap: wrap; background-color: black;\">");
+            html.AppendLine($"  <div style=\"width: 100%; background-color: gray; font-size: 5em; padding: 10px\">{tipus}</div>");
+            foreach (var a in alkatreszek)
+            {
+                if (a.Tipus == $"{tipus}")
+                {
+                    html.AppendLine($"  <div style=\"border: 1px solid #ddd; padding: 10px; margin: 10px; background-color: white;\">");
+                    html.AppendLine($"    <strong>{a.Tipus}</strong><br>");
+                    html.AppendLine($"    <span>{a.Nev}</span><br>");
+                    html.AppendLine($"    <span>{a.Parameter}</span><br>");
+                    html.AppendLine($"    <span>Ár: {a.Ar} Ft</span><br>");
+                    html.AppendLine($"  </div>");
+                }
+            }
+        }
+
+        static void HTMLGeneral()
+        {
+            Console.Clear();
+
+            Divek("CPU");
+            Divek("Videókártya");
+            Divek("Alaplap");
+            Divek("Memória");
+            Divek("HDD");
+            Divek("SSD");
+            Divek("Monitor");
+            Divek("Egér");
+            Divek("Billentyűzet");
+
+            html.AppendLine("</div>");
+
+            string htmlKod = html.ToString();
+
+            Szin(ConsoleColor.Green, "HTML kód legenerálva");
+            File.WriteAllText(@"..\..\..\alkatreszek.html", htmlKod);
         }
 
         static void Main(string[] args)
@@ -530,7 +505,7 @@ namespace projekt2
                 Console.WriteLine("3. Statisztika megtekintése");
                 Console.WriteLine("4. Akciós árak");
                 Console.WriteLine("5. Paraméter módosítás");
-                Console.WriteLine("6. Új alkatrész hozzáadása");
+                Console.WriteLine("6. HTML kód generálás");
                 Console.Write("\nMelyik legyen (1/2/3/4/5/6): ");
                 string valasz = Console.ReadLine();
                 for (int i = 0; i < i + 1; i++)
@@ -562,14 +537,12 @@ namespace projekt2
                     }
                     else if (valasz == "6")
                     {
-                        UjAlkatresz(@"..\..\..\fajl.txt");
+                        HTMLGeneral();
                         break;
                     }
                     else
                     {
-                        Szin(ConsoleColor.Red);
-                        Console.WriteLine("1/2/3/4/5/6");
-                        Szin(ConsoleColor.White);
+                        Szin(ConsoleColor.Red, "1/2/3/4/5");
                         break;
                     }
                 }
